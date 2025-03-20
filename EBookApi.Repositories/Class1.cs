@@ -8,6 +8,6 @@ namespace EBookApi.Repositories
 {
     class Class1
     {
-        int sayi = 1;
+        int sayi = 2;
     }
 }
