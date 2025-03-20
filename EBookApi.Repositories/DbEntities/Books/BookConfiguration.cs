@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace EBookApi.Repositories.Books
+namespace EBookApi.Repositories.DbEntities.Books
 {
     public class BookConfiguration : IEntityTypeConfiguration<Book>
     {

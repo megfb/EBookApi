@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using EBookApi.Entities.Entities;
-using EBookApi.Repositories.Authors;
-using EBookApi.Repositories.Books;
-using EBookApi.Repositories.Categories;
-using EBookApi.Repositories.Publishers;
+using EBookApi.Repositories.DbEntities.Authors;
+using EBookApi.Repositories.DbEntities.Books;
+using EBookApi.Repositories.DbEntities.Categories;
+using EBookApi.Repositories.DbEntities.Publishers;
 using Microsoft.EntityFrameworkCore;
 
 namespace EBookApi.Repositories.DbServices

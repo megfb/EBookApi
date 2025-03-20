@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace EBookApi.Repositories.Authors
+namespace EBookApi.Repositories.DbEntities.Authors
 {
     public class AuthorConfiguration : IEntityTypeConfiguration<Author>
     {
