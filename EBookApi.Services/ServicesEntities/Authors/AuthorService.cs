@@ -1,39 +1,74 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net;
 using EBookApi.Entities.Entities;
 using EBookApi.Repositories.DbEntities.Authors;
+using EBookApi.Repositories.DbUnitOfWork;
 using EBookApi.Services.Results;
+using EBookApi.Services.ServicesEntities.Authors.Requests;
+using EBookApi.Services.ServicesEntities.Authors.Responses;
 using Microsoft.EntityFrameworkCore;
 
 namespace EBookApi.Services.ServicesEntities.Authors
 {
-    public class AuthorService(IAuthorRepository _authorRepository) : IAuthorService
+    public class AuthorService(IAuthorRepository _authorRepository,IUnitOfWork unitOfWork) : IAuthorService
     {
-        public async Task<ServiceResult<List<Author>>> GetAll()
+        public async Task<ServiceResult<CreateAuthorResponse>> CreateAuthorAsync(CreateAuthorRequest request)
         {
-            var author = await _authorRepository.GetAll().ToListAsync();
-            return new ServiceResult<List<Author>>()
+            var author = new Author()
             {
-                Data = author,
-
-
+                Name = request.Name,
+                Biography = request.Biography,
             };
+
+            await _authorRepository.AddAsync(author);
+            await unitOfWork.SaveChanges();
+            return ServiceResult<CreateAuthorResponse>.Success(new CreateAuthorResponse(author.Id));
         }
 
-        public async Task<ServiceResult<Author>> GetAuthorById(int id)
+        public async Task<ServiceResult> DeleteAuthorAsync(int id)
+        {
+            var author = _ = await _authorRepository.GetByIdAsync(id);
+            if (author is null )
+            {
+                return ServiceResult.Fail("Author not found", HttpStatusCode.NotFound);
+            }
+            _authorRepository.Delete(author);
+            await unitOfWork.SaveChanges();
+            return ServiceResult.Success(HttpStatusCode.NoContent);
+
+        }
+
+        public async Task<ServiceResult<List<AuthorResponse>>> GetAll()
+        {
+            var authors = await _authorRepository.GetAll().ToListAsync();
+            var authorsAsDto = authors.Select(a => new AuthorResponse(a.Id, a.Name, a.Biography)).ToList();
+            return ServiceResult<List<AuthorResponse>>.Success(authorsAsDto);
+        }
+
+        public async Task<ServiceResult<AuthorResponse>> GetAuthorById(int id)
         {
             var author = await _authorRepository.GetByIdAsync(id);
+            var authorAsDto = new AuthorResponse(author.Id, author.Name, author.Biography);
 
             if (author is null)
             {
-                ServiceResult<Author>.Fail("Author nod found",HttpStatusCode.NotFound);
+                ServiceResult<AuthorResponse>.Fail("Author not found", HttpStatusCode.NotFound);
             }
-            return ServiceResult<Author>.Success(author);
+            return ServiceResult<AuthorResponse>.Success(authorAsDto!);
 
+        }
+
+        public async Task<ServiceResult> UpdateAuthorAsync(int id, UpdateAuthorRequest request)
+        {
+            var author = await _authorRepository.GetByIdAsync(id);
+            if (author is null)
+            {
+                return ServiceResult.Fail("author not found",HttpStatusCode.NotFound);
+            }
+            author.Name = request.Name;
+            author.Biography = request.Biography;
+            _authorRepository.Update(author);
+            await unitOfWork.SaveChanges();
+            return ServiceResult.Success(HttpStatusCode.NoContent);
         }
 
     }

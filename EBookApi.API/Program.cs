@@ -10,6 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddRepositories(builder.Configuration).AddServices(builder.Configuration);
+//builder.Services.AddControllers();
+builder.Services.AddMvc();
+//builder.Services.AddRazorPages();
+//builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 

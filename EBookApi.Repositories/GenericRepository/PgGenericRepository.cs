@@ -7,12 +7,10 @@ namespace EBookApi.Repositories.GenericRepository
     public class PgGenericRepository<T>(AppDbContext context) : IGenericRepository<T> where T : class, IEntity, new()
     {
 
-        private readonly DbSet<T> _dbSet;
-
+        private readonly DbSet<T> _dbSet = context.Set<T>();
         public async ValueTask AddAsync(T entity)
         {
             await _dbSet.AddAsync(entity);
-            context.SaveChanges();
         }
         public void Delete(T Entity)
         {
