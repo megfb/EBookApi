@@ -1,5 +1,6 @@
 ﻿using EBookApi.Services.ServicesEntities.Authors;
-using EBookApi.Services.ServicesEntities.Authors.Requests;
+using EBookApi.Services.ServicesEntities.Authors.Create;
+using EBookApi.Services.ServicesEntities.Authors.Update;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EBookApi.API.Controllers

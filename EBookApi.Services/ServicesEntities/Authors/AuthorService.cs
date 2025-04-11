@@ -3,8 +3,8 @@ using EBookApi.Entities.Entities;
 using EBookApi.Repositories.DbEntities.Authors;
 using EBookApi.Repositories.DbUnitOfWork;
 using EBookApi.Services.Results;
-using EBookApi.Services.ServicesEntities.Authors.Requests;
-using EBookApi.Services.ServicesEntities.Authors.Responses;
+using EBookApi.Services.ServicesEntities.Authors.Create;
+using EBookApi.Services.ServicesEntities.Authors.Update;
 using Microsoft.EntityFrameworkCore;
 
 namespace EBookApi.Services.ServicesEntities.Authors
@@ -56,7 +56,7 @@ namespace EBookApi.Services.ServicesEntities.Authors
 
             if (author is null)
             {
-                ServiceResult<AuthorResponse>.Fail("Author not found", HttpStatusCode.NotFound);
+                return ServiceResult<AuthorResponse>.Fail("Author not found", HttpStatusCode.NotFound);
             }
             return ServiceResult<AuthorResponse>.Success(authorAsDto!);
 

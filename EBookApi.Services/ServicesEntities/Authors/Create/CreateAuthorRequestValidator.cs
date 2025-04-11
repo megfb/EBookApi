@@ -7,7 +7,7 @@ using EBookApi.Repositories.DbEntities.Authors;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
-namespace EBookApi.Services.ServicesEntities.Authors.Requests
+namespace EBookApi.Services.ServicesEntities.Authors.Create
 {
     public class CreateAuthorRequestValidator:AbstractValidator<CreateAuthorRequest>
     {

@@ -1,6 +1,6 @@
 ﻿using EBookApi.Services.Results;
-using EBookApi.Services.ServicesEntities.Authors.Requests;
-using EBookApi.Services.ServicesEntities.Authors.Responses;
+using EBookApi.Services.ServicesEntities.Authors.Create;
+using EBookApi.Services.ServicesEntities.Authors.Update;
 
 namespace EBookApi.Services.ServicesEntities.Authors
 {
