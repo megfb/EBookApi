@@ -1,4 +1,5 @@
-﻿using EBookApi.Entities.Abstract;
+﻿using System.Linq.Expressions;
+using EBookApi.Entities.Abstract;
 using EBookApi.Repositories.DbServices;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +21,10 @@ namespace EBookApi.Repositories.GenericRepository
         public IQueryable<T> GetAll()
         {
             return _dbSet.AsQueryable();
+        }
+        public IQueryable<T> Where(Expression<Func<T, bool>> predicate)
+        {
+            return _dbSet.Where(predicate).AsNoTracking();
         }
 
         public ValueTask<T> GetByIdAsync(int id)

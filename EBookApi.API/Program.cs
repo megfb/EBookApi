@@ -1,5 +1,6 @@
 using EBookApi.Repositories.Extensions;
 using EBookApi.Services.Extensions;
+using EBookApi.Services.Validation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddRepositories(builder.Configuration).AddServices(builder.Configuration);
-//builder.Services.AddControllers();
+builder.Services.AddControllers(options => options.Filters.Add<FluentValidationFilter>());
 builder.Services.AddMvc();
 //builder.Services.AddRazorPages();
 //builder.Services.AddControllersWithViews();

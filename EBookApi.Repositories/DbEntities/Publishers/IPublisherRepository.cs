@@ -3,7 +3,7 @@ using EBookApi.Repositories.GenericRepository;
 
 namespace EBookApi.Repositories.DbEntities.Publishers
 {
-    public interface IPublisherRepository:IGenericRepository<Publisher>
+    public interface IPublisherRepository : IGenericRepository<Publisher>
     {
     }
 }

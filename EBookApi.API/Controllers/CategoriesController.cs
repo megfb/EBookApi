@@ -1,6 +1,5 @@
 ﻿using EBookApi.Services.ServicesEntities.Categories;
 using EBookApi.Services.ServicesEntities.Categories.Requests;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EBookApi.API.Controllers

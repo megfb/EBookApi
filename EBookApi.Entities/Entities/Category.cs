@@ -2,7 +2,7 @@
 
 namespace EBookApi.Entities.Entities
 {
-    public class Category:IEntity
+    public class Category : IEntity
     {
         public int Id { get; set; }
 

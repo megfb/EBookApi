@@ -53,7 +53,7 @@ namespace EBookApi.Services.Results
 
         public static ServiceResult Success(HttpStatusCode status = HttpStatusCode.OK)
         {
-            return new ServiceResult {Status = status };
+            return new ServiceResult { Status = status };
         }
 
         public static ServiceResult Fail(List<String> errorMessage, HttpStatusCode status = HttpStatusCode.BadRequest)

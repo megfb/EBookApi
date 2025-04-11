@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EBookApi.Repositories.DbEntities.Authors;
-using EBookApi.Repositories.DbServices;
-using EBookApi.Repositories.GenericRepository;
+﻿using System.Reflection;
 using EBookApi.Services.ServicesEntities.Authors;
 using EBookApi.Services.ServicesEntities.Books;
 using EBookApi.Services.ServicesEntities.Categories;
 using EBookApi.Services.ServicesEntities.Publishers;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -24,6 +19,8 @@ namespace EBookApi.Services.Extensions
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IPublisherService, PublisherService>();
+            services.AddFluentValidationAutoValidation();
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             return services;
         }
     }

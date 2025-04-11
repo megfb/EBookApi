@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EBookApi.Entities.Abstract;
+﻿using EBookApi.Entities.Abstract;
 
 namespace EBookApi.Entities.Entities
 {
-    public class Book:IEntity
+    public class Book : IEntity
     {
         public int Id { get; set; }
         public string Name { get; set; } = default!;

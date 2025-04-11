@@ -43,10 +43,10 @@ namespace EBookApi.Services.ServicesEntities.Publishers
         public async Task<ServiceResult<PublisherResponse>> GetByIdAsync(int id)
         {
             var publisher = await publisherRepository.GetByIdAsync(id);
-            
-            if(publisher is null)
+
+            if (publisher is null)
             {
-               ServiceResult.Fail("Publisher not found", System.Net.HttpStatusCode.NotFound);
+                ServiceResult.Fail("Publisher not found", System.Net.HttpStatusCode.NotFound);
             }
             var publisherAsDto = new PublisherResponse(publisher.Id, publisher.Name);
             return ServiceResult<PublisherResponse>.Success(publisherAsDto);

@@ -1,6 +1,5 @@
 ﻿using System.Net;
 using EBookApi.Services.Results;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EBookApi.API.Controllers

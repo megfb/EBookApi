@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using EBookApi.Entities.Abstract;
+﻿using EBookApi.Entities.Abstract;
 
 namespace EBookApi.Entities.Entities
 {

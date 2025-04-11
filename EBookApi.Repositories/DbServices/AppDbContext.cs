@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using EBookApi.Entities.Entities;
+﻿using EBookApi.Entities.Entities;
 using EBookApi.Repositories.DbEntities.Authors;
 using EBookApi.Repositories.DbEntities.Books;
 using EBookApi.Repositories.DbEntities.Categories;

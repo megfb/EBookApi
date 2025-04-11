@@ -25,10 +25,10 @@ namespace EBookApi.Repositories.Extensions
             });
             services.AddScoped<IAuthorRepository, AuthorRepository>();
             services.AddScoped<IBookRepository, BookRepository>();
-            services.AddScoped<ICategoryRepository,CategoryRepsitory>();
+            services.AddScoped<ICategoryRepository, CategoryRepsitory>();
             services.AddScoped<IPublisherRepository, PublisherRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped(typeof(IGenericRepository<>),typeof(PgGenericRepository<>));
+            services.AddScoped(typeof(IGenericRepository<>), typeof(PgGenericRepository<>));
 
 
             return services;

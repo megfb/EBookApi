@@ -9,7 +9,7 @@ namespace EBookApi.Services.ServicesEntities.Publishers
         Task<ServiceResult<List<PublisherResponse>>> GetAllAsync();
         Task<ServiceResult<CreatePublisherResponse>> CreateAsync(CreatePublisherRequest createPublisherRequest);
         Task<ServiceResult<PublisherResponse>> GetByIdAsync(int id);
-        Task<ServiceResult>UpdateAsync(int id, UpdatePublisherRequest updatePublisherRequest);
+        Task<ServiceResult> UpdateAsync(int id, UpdatePublisherRequest updatePublisherRequest);
         Task<ServiceResult> DeleteAsync(int id);
     }
 }
