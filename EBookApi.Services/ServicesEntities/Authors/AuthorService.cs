@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using AutoMapper;
 using EBookApi.Entities.Entities;
 using EBookApi.Repositories.DbEntities.Authors;
 using EBookApi.Repositories.DbUnitOfWork;
@@ -9,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EBookApi.Services.ServicesEntities.Authors
 {
-    public class AuthorService(IAuthorRepository _authorRepository, IUnitOfWork unitOfWork) : IAuthorService
+    public class AuthorService(IAuthorRepository _authorRepository, IUnitOfWork unitOfWork,IMapper mapper) : IAuthorService
     {
         public async Task<ServiceResult<CreateAuthorResponse>> CreateAuthorAsync(CreateAuthorRequest request)
         {
@@ -44,15 +45,18 @@ namespace EBookApi.Services.ServicesEntities.Authors
 
         public async Task<ServiceResult<List<AuthorResponse>>> GetAll()
         {
+
             var authors = await _authorRepository.GetAll().ToListAsync();
-            var authorsAsDto = authors.Select(a => new AuthorResponse(a.Id, a.Name, a.Biography)).ToList();
+            //var authorsAsDto = authors.Select(a => new AuthorResponse(a.Id, a.Name, a.Biography)).ToList(); ---->>>>>>>> Manuel Mapping
+            var authorsAsDto = mapper.Map<List<AuthorResponse>>(authors);
             return ServiceResult<List<AuthorResponse>>.Success(authorsAsDto);
         }
 
         public async Task<ServiceResult<AuthorResponse>> GetAuthorById(int id)
         {
             var author = await _authorRepository.GetByIdAsync(id);
-            var authorAsDto = new AuthorResponse(author.Id, author.Name, author.Biography);
+            //var authorAsDto = new AuthorResponse(author.Id, author.Name, author.Biography);
+            var authorAsDto = mapper.Map<AuthorResponse>(author);
 
             if (author is null)
             {
@@ -65,7 +69,8 @@ namespace EBookApi.Services.ServicesEntities.Authors
         public async Task<ServiceResult<List<AuthorResponse>>> GetPagedAllListAsync(int pageNumber, int pageSize)
         {
             var authors = await _authorRepository.GetAll().Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
-            var authorsAsDto = authors.Select(a => new AuthorResponse(a.Id, a.Name, a.Biography)).ToList();
+            //var authorsAsDto = authors.Select(a => new AuthorResponse(a.Id, a.Name, a.Biography)).ToList();
+            var authorsAsDto = mapper.Map<List<AuthorResponse>>(authors);
             return ServiceResult<List<AuthorResponse>>.Success(authorsAsDto.ToList());
         }
 

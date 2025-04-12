@@ -45,7 +45,7 @@ namespace EBookApi.Services.ServicesEntities.Categories
             var category = await categoryRepository.GetByIdAsync(id);
             if (category is null)
             {
-                ServiceResult.Fail("Category not found", System.Net.HttpStatusCode.NotFound);
+                return ServiceResult<CategoryResponse>.Fail("Category not found", System.Net.HttpStatusCode.NotFound);
             }
             var categoryAsDto = new CategoryResponse(category.Id, category.Name);
             return ServiceResult<CategoryResponse>.Success(categoryAsDto!);

@@ -29,7 +29,7 @@ namespace EBookApi.Repositories.GenericRepository
 
         public ValueTask<T> GetByIdAsync(int id)
         {
-            return _dbSet.FindAsync(id);
+            return _dbSet.FindAsync(id)!;
         }
 
         public void Update(T Entity)

@@ -46,7 +46,7 @@ namespace EBookApi.Services.ServicesEntities.Publishers
 
             if (publisher is null)
             {
-                ServiceResult.Fail("Publisher not found", System.Net.HttpStatusCode.NotFound);
+               return ServiceResult<PublisherResponse>.Fail("Publisher not found", System.Net.HttpStatusCode.NotFound);
             }
             var publisherAsDto = new PublisherResponse(publisher.Id, publisher.Name);
             return ServiceResult<PublisherResponse>.Success(publisherAsDto);

@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using EBookApi.Services.ExceptionHandlers;
 using EBookApi.Services.ServicesEntities.Authors;
 using EBookApi.Services.ServicesEntities.Books;
 using EBookApi.Services.ServicesEntities.Categories;
@@ -20,6 +21,9 @@ namespace EBookApi.Services.Extensions
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<IPublisherService, PublisherService>();
             services.AddFluentValidationAutoValidation();
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddExceptionHandler<CriticalExceptionHandler>();
+            services.AddExceptionHandler<GlobalExceptionHandler>();
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             return services;
         }

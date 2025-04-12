@@ -8,7 +8,9 @@
 
   <ItemGroup>
 	  <FrameworkReference Include="Microsoft.AspNetCore.App" />
+	  <PackageReference Include="AutoMapper" Version="14.0.0" />
 	  <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.3" />
 
 	  <ProjectReference Include="..\EBookApi.Repositories\EBookApi.Repositories.csproj" />
   </ItemGroup>
