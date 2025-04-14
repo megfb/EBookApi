@@ -19,11 +19,7 @@ namespace EBookApi.Services.ServicesEntities.Authors
             {
                 return ServiceResult<CreateAuthorResponse>.Fail("The name is found in DB");
             }
-            var author = new Author()
-            {
-                Name = request.Name,
-                Biography = request.Biography,
-            };
+            var author = mapper.Map<Author>(request);
 
             await _authorRepository.AddAsync(author);
             await unitOfWork.SaveChanges();
@@ -81,8 +77,9 @@ namespace EBookApi.Services.ServicesEntities.Authors
             {
                 return ServiceResult.Fail("author not found", HttpStatusCode.NotFound);
             }
-            author.Name = request.Name;
-            author.Biography = request.Biography;
+            //author.Name = request.Name;
+            //author.Biography = request.Biography;
+            mapper.Map(request,author);
             _authorRepository.Update(author);
             await unitOfWork.SaveChanges();
             return ServiceResult.Success(HttpStatusCode.NoContent);
