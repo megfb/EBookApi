@@ -1,7 +1,7 @@
-using EBookApi.CleanAPI.Filters;
-using EBookApi.Persistance.Extensions;
 using EBookApi.Application.Extensions;
 using EBookApi.CleanAPI.ExceptionHandler;
+using EBookApi.CleanAPI.Filters;
+using EBookApi.Persistance.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 

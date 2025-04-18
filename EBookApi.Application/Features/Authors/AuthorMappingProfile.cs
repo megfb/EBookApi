@@ -5,7 +5,7 @@ using EBookApi.Domain.Entities;
 
 namespace EBookApi.Application.Features.Authors
 {
-    public class AuthorMappingProfile:Profile
+    public class AuthorMappingProfile : Profile
     {
         public AuthorMappingProfile()
         {

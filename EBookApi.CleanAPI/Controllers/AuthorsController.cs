@@ -13,14 +13,14 @@ namespace EBookApi.CleanAPI.Controllers
             return CreateActionResult(await authorService.GetAll());
         }
         [HttpGet("{pageNumber}/{pageSize}")]
-        public async Task<IActionResult> GetPagedAllList(int pageNumber,int pageSize)
+        public async Task<IActionResult> GetPagedAllList(int pageNumber, int pageSize)
         {
-            return CreateActionResult(await authorService.GetPagedAllListAsync(pageNumber,pageSize));
+            return CreateActionResult(await authorService.GetPagedAllListAsync(pageNumber, pageSize));
         }
         [HttpPost]
         public async Task<IActionResult> CreateAuthor(CreateAuthorRequest createAuthorRequest)
         {
-            
+
             return CreateActionResult(await authorService.CreateAuthorAsync(createAuthorRequest));
         }
         [HttpGet("{id}")]

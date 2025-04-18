@@ -10,7 +10,7 @@ namespace EBookApi.Application.Contracts.Persistence
         ValueTask AddAsync(T entity);
         IQueryable<T> Where(Expression<Func<T, bool>> predicate);
         Task<bool> AnyAsync(Expression<Func<T, bool>> predicate);
-    
+
         void Update(T Entity);
         void Delete(T Entity);
 

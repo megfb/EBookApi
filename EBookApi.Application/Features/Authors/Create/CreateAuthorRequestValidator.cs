@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace EBookApi.Application.Features.Authors.Create
 {
-    public class CreateAuthorRequestValidator:AbstractValidator<CreateAuthorRequest>
+    public class CreateAuthorRequestValidator : AbstractValidator<CreateAuthorRequest>
     {
 
         private readonly IAuthorRepository _authorRepository;
@@ -16,7 +16,7 @@ namespace EBookApi.Application.Features.Authors.Create
                 .WithMessage("Name is required.")
                 .MaximumLength(100)
                 .WithMessage("Name must not exceed 100 characters.");
-                //.MustAsync(MustUniqueAuthorNameAsync).WithMessage("The name is found in DB");
+            //.MustAsync(MustUniqueAuthorNameAsync).WithMessage("The name is found in DB");
             RuleFor(x => x.Biography)
                 .NotEmpty()
                 .WithMessage("Biography is required.")
