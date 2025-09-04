@@ -1,6 +1,6 @@
 🧩 EBookApi – Modular Backend-Only E-Book Management API
 
-EBookApi, modüler bir yapıda geliştirilmiş, sadece arka uç (backend) tarafını içeren bir .NET 8 Web API projesidir.
+EBookApi, modüler bir yapıda geliştirilmiş, sadece backend tarafını içeren bir .NET 8 Web API projesidir.
 
 Herhangi bir kullanıcı arayüzü (web/mobil) içermez. Amaç; e-kitap verilerinin merkezi olarak yönetilmesini sağlamak için temiz, genişletilebilir ve katmanlı bir servis mimarisi sunmaktır.
 
