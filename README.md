@@ -25,12 +25,19 @@ Serilog – Gelişmiş ve yapılandırılabilir loglama altyapısı (isteğe ba�
 📁 Proje Klasör Yapısı
 /src
   /EBookApi.WebAPI         --> API Controller’lar ve giriş noktası
+
   /EBookApi.Application    --> UseCase’ler, DTO’lar, Handler’lar, Validation
+
   /EBookApi.Domain         --> Entity’ler ve Domain kuralları
+
   /EBookApi.Persistence    --> DbContext, Repository, EF konfigürasyonları
+
 /shared
+
   /Mappings                --> AutoMapper profilleri
+
   /Validation              --> FluentValidation sınıfları
+
   /DTOs                    --> Taşıma nesneleri
 
 🔄 Geliştirme Akışı
