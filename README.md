@@ -56,29 +56,6 @@ JWT Authentication (varsa) ile endpoint erişimi sınırlandırılabilir
 
 Serilog, uygulama loglarını yapılandırılmış şekilde yönetir
 
-🚀 Kurulum ve Çalıştırma
-Projeyi Klonlayın
-git clone https://github.com/megfb/EBookApi.git
-cd EBookApi
-
-Bağımlılıkları Yükleyin
-dotnet restore
-
-Veritabanı Oluştur / Güncelle (EF Core)
-dotnet ef database update --project src/EBookApi.Persistence
-
-
-💡 Not: appsettings.json içindeki veritabanı bağlantı bilgisini güncellediğinizden emin olun.
-
-Uygulamayı Başlat
-dotnet run --project src/EBookApi.WebAPI
-
-Swagger UI
-
-API dokümantasyonuna aşağıdaki URL üzerinden erişebilirsiniz:
-
-https://localhost:<port>/swagger/index.html
-
 🧪 Örnek Endpoint’ler
 GET    /api/books
 POST   /api/books
